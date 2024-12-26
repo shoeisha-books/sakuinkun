@@ -1,0 +1,9 @@
+_build
+_install
+.vscode
+extlibs/mecab
+extlibs/mecab-ipadic
+img/
+guiapp_csharp/obj
+guiapp_csharp/bin
+guiapp_csharp/.vs
