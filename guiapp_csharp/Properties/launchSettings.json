@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "SakuinKun": {
+      "commandName": "Project",
+      "workingDirectory": "../_install/$(Configuration)",
+      "nativeDebugging": true
+    }
+  }
+}
