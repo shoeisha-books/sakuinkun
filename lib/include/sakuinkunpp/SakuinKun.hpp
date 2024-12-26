@@ -1,3 +1,10 @@
+/**
+ * @file SakuinKun.hpp
+ * @brief さくいんくん本体クラス
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ */
+
 #pragma once
 
 #include "IndexDesc.hpp"
@@ -9,11 +16,14 @@
 #include <memory>
 #include <vector>
 
+// 前方宣言
 struct IndexData;
 
 namespace sakuin
 {
-/// @brief さくいん君メインクラス。設定ファイルは「./config.json」
+/// <summary>
+/// さくいん君メインクラス
+/// </summary>
 class SakuinKun
 {
 private:
@@ -46,16 +56,25 @@ public:
     /// <param name="fileName"></param>
     bool loadJson(const std::wstring& fileName);
 
-    /// @brief JSONファイルへの保存
-    /// @param fileName 
+    /// <summary>
+    /// JSONファイルへの保存
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <returns></returns>
     bool saveJson(const std::wstring& fileName)const;
 
-    /// @brief XMLからのインポート
-    /// @param fileName 
+    /// <summary>
+    /// XMLからのインポート
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <returns></returns>
     bool importXML(const std::wstring& fileName);
 
-    /// @brief XLSXへのエクスポート
-    /// @param fileName 
+    /// <summary>
+    /// XLSXへのエクスポート
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <returns></returns>
     bool exportXLSX(const std::wstring& fileName)const;
 
     /// <summary>
@@ -64,35 +83,78 @@ public:
     /// <param name="desc"></param>
     void setDesc(const IndexDesc& desc);
 
+    /// <summary>
+    /// 設定の取得
+    /// </summary>
+    /// <returns></returns>
     IndexDesc getDesc()const;
 
-    /// @brief 保存リスト上のレコード取得
-    /// @param id
-    /// @return 
+    /// <summary>
+    /// 保存リスト上のレコード取得
+    /// </summary>
+    /// <param name="uuid"></param>
+    /// <param name="record"></param>
+    /// <returns></returns>
     bool getRecord(const std::wstring& uuid, IndexRecord& record)const;
 
-    /// @brief 保存リスト取得
-    /// @return 
+    /// <summary>
+    /// 保存リスト取得
+    /// </summary>
+    /// <returns></returns>
     IndexRecordList getRecordList()const;
 
-    /// @brief レコードの追加・更新
-    /// @param record 追加・更新するレコード
+    /// <summary>
+    /// レコードの追加・更新
+    /// </summary>
+    /// <param name="record">追加・更新するレコード</param>
     void addAndUpdateRecord(const IndexRecord& record);
 
-    /// @brief レコードの削除
-    /// @param id 
+    /// <summary>
+    /// レコードの削除
+    /// </summary>
+    /// <param name="uuid"></param>
     void removeRecord(const std::wstring& uuid);
 
 
+    /// <summary>
+    /// ライブラリバージョン取得
+    /// </summary>
+    /// <returns></returns>
     static std::wstring getLibVersion();
+
+    /// <summary>
+    /// MeCab::Modelのバージョン取得
+    /// </summary>
+    /// <returns></returns>
     static std::wstring getMecabModelVersion();
+
+    /// <summary>
+    /// MeCab::Taggerのバージョン取得
+    /// </summary>
+    /// <returns></returns>
     static std::wstring getMecabTaggerVersion();
+
+    /// <summary>
+    /// Boostのバージョン取得
+    /// </summary>
+    /// <returns></returns>
     static std::wstring getBoostVersion();
+
+    /// <summary>
+    /// Xml2のバージョン取得
+    /// </summary>
+    /// <returns></returns>
     static std::wstring getXml2Version();
+
+    /// <summary>
+    /// XlsxWriterのバージョン取得
+    /// </summary>
+    /// <returns></returns>
     static std::wstring getXlsxWriterVersion();
 
 
 private:
+    // pimpl
     class Impl;
     std::shared_ptr<Impl> impl_;
 };

@@ -1,3 +1,10 @@
+/**
+ * @file ReferenceType.h
+ * @brief さくいんくん 参照タイプ
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ */
+
 #pragma once
 
 // 参照タイプ

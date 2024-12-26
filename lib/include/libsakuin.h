@@ -1,3 +1,9 @@
+/**
+ * @file libsakuin.h
+ * @brief Cインタフェース
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ */
 #pragma once
 
 #include "sakuin_def.h"
@@ -15,8 +21,16 @@ extern "C"
 #define DLLEXPORT export
 #endif
 
+/// <summary>
+/// 初期化（何するにも必要）
+/// </summary>
+/// <returns></returns>
 DLLEXPORT void initialize();
 
+/// <summary>
+/// 初期化済みか？
+/// </summary>
+/// <returns></returns>
 DLLEXPORT bool is_initialized();
 
 /// <summary>
@@ -54,28 +68,76 @@ DLLEXPORT void get_boost_version(wchar_t* version);
 /// <returns></returns>
 DLLEXPORT void get_xml2_version(wchar_t* version);
 
+/// <summary>
+/// XlsxWriterのバージョン取得
+/// </summary>
+/// <param name="version"></param>
+/// <returns></returns>
 DLLEXPORT void get_xlsx_writer_version(wchar_t* version);
 
-
+/// <summary>
+/// Json読み込み
+/// </summary>
+/// <param name="fileName"></param>
+/// <returns></returns>
 DLLEXPORT bool load_json(const wchar_t* fileName);
 
+/// <summary>
+/// Jsonへのセーブ
+/// </summary>
+/// <param name="fileName"></param>
+/// <returns></returns>
 DLLEXPORT bool save_json(const wchar_t* fileName);
 
+/// <summary>
+/// Xmlからのインポート
+/// </summary>
+/// <param name="fileName"></param>
+/// <returns></returns>
 DLLEXPORT bool import_xml(const wchar_t* fileName);
 
+/// <summary>
+/// Xlsxへのエクスポート
+/// </summary>
+/// <param name="fileName"></param>
+/// <returns></returns>
 DLLEXPORT bool export_xlsx(const wchar_t* fileName);
 
+/// <summary>
+/// レコードの数取得
+/// </summary>
+/// <returns></returns>
 DLLEXPORT int get_index_num();
 
+/// <summary>
+/// 索引データ取得
+/// </summary>
+/// <param name="data"></param>
+/// <param name="sort">読み用のソート</param>
+/// <returns></returns>
 DLLEXPORT bool get_index(IndexData* data, bool sort);
 
+/// <summary>
+/// 個別レコード取得
+/// </summary>
+/// <param name="uuid"></param>
+/// <param name="data"></param>
+/// <returns></returns>
 DLLEXPORT bool get_record(const wchar_t* uuid, IndexRecordData* data);
 
+/// <summary>
+/// 設定をセット
+/// </summary>
+/// <param name="desc"></param>
+/// <returns></returns>
 DLLEXPORT void set_desc(const IndexDescData* desc);
 
+/// <summary>
+/// レコードの追加・更新
+/// </summary>
+/// <param name="data"></param>
+/// <returns></returns>
 DLLEXPORT void add_and_update_record(const IndexRecordData* data);
-
-DLLEXPORT void dummy();
 
 #ifdef __cplusplus
 }

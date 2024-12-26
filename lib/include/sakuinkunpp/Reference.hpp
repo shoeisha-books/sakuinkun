@@ -1,3 +1,11 @@
+/**
+ * @file Reference.hpp
+ * @brief 参照クラス（ノンブルとか）
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ */
+
+
 #pragma once
 
 #include "sakuinkun/ReferenceType.h"
@@ -5,20 +13,29 @@
 #include <string>
 #include <compare>
 
+// 前方宣言
 struct ReferenceData;
 
 namespace sakuin
 {
 
+// 前方宣言
 class IndexDesc;
 
-// 参照（ノンブルや「を見よ」など）
+/// <summary>
+/// 参照（ノンブルや「を見よ」など）クラス
+/// </summary>
 class Reference
 {
 public:
+
+    /// <summary>
+    /// デフォルトコンストラクタ
+    /// </summary>
     Reference()
         : Reference(ReferenceType::Nombre, 0, L"")
     { }
+
     /// <summary>
     /// コンストラクタ
     /// </summary>

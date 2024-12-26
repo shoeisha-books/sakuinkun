@@ -1,3 +1,10 @@
+/**
+ * @file sakuin_def.h
+ * @brief さくいんくん Cインタフェース用各種定義
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ */
+
 #pragma once
 
 #include "sakuinkun/ReferenceType.h"
@@ -9,10 +16,11 @@ extern "C"
 {
 #endif
 
-// 基本的に利用者がメモリを確保する
+// ATTENTION! 基本的に利用者がメモリを確保・管理する
 
-
-// 索引ヘッダ
+/// <summary>
+/// 索引生成用設定
+/// </summary>
 struct IndexDescData
 {
     wchar_t* repeat = nullptr;
@@ -22,41 +30,49 @@ struct IndexDescData
     bool roman_cap = true;
 };
 
-// キーワード
+/// <summary>
+/// キーワード
+/// </summary>
 struct KeyWordData
 {
     wchar_t* word = nullptr;    // 単語
     wchar_t* yomi = nullptr;    // 読み
-    int word_len = 0;
-    int yomi_len = 0;
+    int word_len = 0;           // 文字列バッファサイズ
+    int yomi_len = 0;           // 文字列バッファサイズ
 };
 
-// 参照データ
+/// <summary>
+/// 参照データ
+/// </summary>
 struct ReferenceData
 {
-    wchar_t* disp_str = nullptr;      // 表示文字列
-    int disp_str_len = 0;
+    wchar_t* disp_str = nullptr;        // 表示文字列
+    int disp_str_len = 0;               // 文字列バッファサイズ
     int type = -1;                      // 参照タイプ
-    int page = 0;                       // 元ページ
+    int page = 0;                       // 元ページ（PDF上のページ番号）
 };
 
-// 索引レコード
+/// <summary>
+/// 索引レコード
+/// </summary>
 struct IndexRecordData
 {
-    KeyWordData main_key = {};
-    KeyWordData sub_key = {};
-    ReferenceData ref = {};
-    wchar_t* uuid = nullptr;
-    int uuid_len = 0;
-    bool has_sub_key = false;
+    KeyWordData main_key = {};          // メインキーワード
+    KeyWordData sub_key = {};           // サブキーワード
+    ReferenceData ref = {};             // 参照
+    wchar_t* uuid = nullptr;            // UUID
+    int uuid_len = 0;                   // 文字列バッファサイズ
+    bool has_sub_key = false;           // サブキーあるか？（あまり意味ない）
 };
 
-// 索引データ
+/// <summary>
+/// 索引データ
+/// </summary>
 struct IndexData
 {
-    IndexDescData desc = {};
-    IndexRecordData* records = {};
-    int record_num = 0;
+    IndexDescData desc = {};            // 設定
+    IndexRecordData* records = {};      // レコード
+    int record_num = 0;                 // 確保済みレコード件数
 };
 
 #define VERSION_LENGTH 32

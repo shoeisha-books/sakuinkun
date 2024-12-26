@@ -251,7 +251,8 @@ DLLEXPORT void add_and_update_record(const IndexRecordData* data)
     sakuin.addAndUpdateRecord(record);
 }
 
-DLLEXPORT void dummy()
+#if 0
+void dummy()
 {    
     auto& sakuin = sakuin::SakuinKun::getInstance();
     sakuin.initialize();
@@ -283,3 +284,4 @@ DLLEXPORT void dummy()
 
     return;
 }
+#endif

@@ -1,18 +1,32 @@
+/**
+ * @file KeyWord.hpp
+ * @brief キーワードクラス
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ */
+
 #pragma once
 #include <string>
 #include <compare>
 
+// 前方宣言
 struct KeyWordData;
 
 namespace sakuin
 {
-// キーワード
+/// <summary>
+/// キーワードクラス
+/// </summary>
 class KeyWord
 {
 public:
+    /// <summary>
+    /// デフォルトコンストラクタ
+    /// </summary>
     KeyWord()
         : KeyWord(L"", L"")
     { }
+
     /// <summary>
     /// コンストラクタ
     /// </summary>
