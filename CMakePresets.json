@@ -1,0 +1,20 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "default",
+            "hidden": true,
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        },
+        {
+            "name": "win",
+            "hidden": true,
+            "inherits": "default"
+        },
+        {
+            "name": "win64",
+            "inherits": "win",
+            "architecture":{"value": "x64", "strategy": "external"}
+        }
+    ]
+}

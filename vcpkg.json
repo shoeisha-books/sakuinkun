@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "freexl",
+    "libxlsxwriter",
+    "picojson",
+    "mecab",
+    "libxml2",
+    "boost-uuid",
+    "boost-convert",
+    "boost-locale",
+    "boost-nowide",
+    "boost-algorithm",
+    "tinyxml2"
+  ]
+}
