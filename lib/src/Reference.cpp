@@ -1,3 +1,11 @@
+/**
+ * @file Reference.cpp
+ * @brief 参照クラス
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "sakuinkunpp/Reference.hpp"
 #include "sakuinkunpp/IndexDesc.hpp"
 #include "util.h"

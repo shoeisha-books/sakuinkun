@@ -1,3 +1,11 @@
+/**
+ * @file XlsxExport.cpp
+ * @brief XLSXエクスポート用関数
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "XlsxExport.h"
 #include "xlsxwriter.h"
 #include "sakuin_def.h"

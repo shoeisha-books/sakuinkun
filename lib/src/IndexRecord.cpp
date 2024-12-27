@@ -1,3 +1,11 @@
+/**
+ * @file IndexRecord.cpp
+ * @brief 索引レコードクラス
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "sakuinkunpp/IndexRecord.hpp"
 #include "util.h"
 #include "sakuin_def.h"

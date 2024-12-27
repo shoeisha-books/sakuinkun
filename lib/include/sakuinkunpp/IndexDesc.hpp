@@ -3,6 +3,7 @@
  * @brief 索引設定クラス
  * @author Satoshi Yamamoto
  * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
  */
 
 #pragma once

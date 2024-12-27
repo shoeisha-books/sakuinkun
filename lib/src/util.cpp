@@ -1,3 +1,11 @@
+/**
+ * @file util.cpp
+ * @brief 便利関数詰め合わせ
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "util.h"
 #include <sstream>
 #include <stdexcept>

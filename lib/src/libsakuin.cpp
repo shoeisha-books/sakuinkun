@@ -1,3 +1,10 @@
+/**
+ * @file libsakuin.cpp
+ * @brief Cインタフェース関数
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
 
 
 #include "libsakuin.h"

@@ -1,3 +1,11 @@
+/**
+ * @file IndexDesc.cpp
+ * @brief 索引設定クラス
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "sakuinkunpp/IndexDesc.hpp"
 #include "sakuin_def.h"
 

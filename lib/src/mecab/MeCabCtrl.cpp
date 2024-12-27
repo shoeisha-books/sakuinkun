@@ -1,3 +1,11 @@
+/**
+ * @file MeCabCtrl.cpp
+ * @brief MeCabコントローラー
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "MeCabCtrl.h"
 #include <sstream>
 #include <iostream>

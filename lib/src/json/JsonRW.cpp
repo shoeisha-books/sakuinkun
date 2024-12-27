@@ -1,3 +1,11 @@
+/**
+ * @file JsonRW.cpp
+ * @brief Json読み書き
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "json/JsonRW.h"
 #include "sakuinkunpp/IndexDesc.hpp"
 #include "sakuin_def.h"

@@ -1,3 +1,11 @@
+/**
+ * @file SakuinKun.cpp
+ * @brief さくいんくん本体クラス
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "sakuinkunpp/SakuinKun.hpp"
 #include "mecab/MeCabCtrl.h"
 #include "json/JsonRW.h"

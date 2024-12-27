@@ -3,6 +3,7 @@
  * @brief さくいんくん 参照タイプ
  * @author Satoshi Yamamoto
  * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
  */
 
 #pragma once

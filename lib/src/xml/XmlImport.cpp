@@ -1,3 +1,11 @@
+/**
+ * @file XmlImport.cpp
+ * @brief Xmlインポート用関数
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "XmlImport.h"
 #include "util.h"
 #include <libxml/parser.h>

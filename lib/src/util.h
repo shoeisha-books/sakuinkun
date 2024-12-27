@@ -1,3 +1,11 @@
+/**
+ * @file util.h
+ * @brief 便利関数詰め合わせ
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #pragma once
 #include <string>
 #include "sakuinkunpp/IndexDesc.hpp"

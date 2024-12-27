@@ -1,3 +1,11 @@
+/**
+ * @file utf8_win.h
+ * @brief UTF変換
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #ifdef WIN32
 
 #include <Windows.h>
@@ -5,7 +13,6 @@ constexpr UINT DEFAULT = 0;
 
 struct CodePointUTF8
 {
-    
     static UINT old_codepoint;
     CodePointUTF8() noexcept
     {

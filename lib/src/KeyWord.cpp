@@ -1,3 +1,11 @@
+/**
+ * @file KeyWord.cpp
+ * @brief キーワードクラス
+ * @author Satoshi Yamamoto
+ * @date 2024/12/26
+ * Copyright (C) 2024 Shoeisha Co., Ltd.
+ */
+
 #include "sakuinkunpp/KeyWord.hpp"
 #include "sakuin_def.h"
 #include <boost/nowide/convert.hpp>
