@@ -409,11 +409,19 @@ bool loadSakuin(const std::wstring& path, IndexDesc& desc, IndexRecordList& reco
         return false;
     }
     std::shared_ptr<IndexDesc> descPtr;
+    if (!json.contains("header"))
+    {
+        return false;
+    }
     if (!parseIndexHeader(json.get("header"), descPtr))
     {
         return false;
     }
     desc = *descPtr;
+    if (!json.contains("list"))
+    {
+        return false;
+    }
     return parseIndexRecordList(json.get("list"), recordList);
 }
 

@@ -8,7 +8,7 @@
 const wchar_t* RangeMark = L"-";
 const wchar_t* SeeMark = L"→";
 const wchar_t* SeeAlsoMark = L"⇒";
-const wchar_t* LibSakuinVer = L"3.0.0";
+const wchar_t* LibSakuinVer = L"3.0.1";
 
 DLLEXPORT void initialize()
 {
