@@ -1,5 +1,6 @@
 _build
 _install
+_release
 .vscode
 extlibs/mecab
 extlibs/mecab-ipadic
