@@ -263,7 +263,6 @@
             // JsonLoadFileDialog
             // 
             JsonLoadFileDialog.FileName = "openFileDialog2";
-            JsonLoadFileDialog.FileOk += JsonLoadFileDialog_FileOk;
             // 
             // ExportFileDialog
             // 

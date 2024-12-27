@@ -101,17 +101,18 @@ namespace SakuinKun
             if (JsonLoadFileDialog.ShowDialog() == DialogResult.OK)
             {
                 var wordListForm = new KeyWordListForm();
-                wordListForm.LoadJson(JsonLoadFileDialog.FileName);
+                if (!LibSakuin.LoadJson(JsonLoadFileDialog.FileName))
+                {
+                    // @TODO error
+                    MessageBox.Show("不正なJsonファイルです");
+                    return;
+                }
                 Visible = false;
                 wordListForm.ShowDialog();
                 Visible = true;
             }
         }
 
-        private void JsonLoadFileDialog_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            // JSON読み込み
-        }
         private void AboutMenuItem_Click(object sender, EventArgs e)
         {
             var aboutForm = new AboutForm();
@@ -145,7 +146,6 @@ namespace SakuinKun
 
 
             var listForm = new KeyWordListForm();
-            listForm.ImportXml(ImportFileNameTextBox.Text);
             Visible = false;
             var listResult = listForm.ShowDialog(this);
             Visible = true;

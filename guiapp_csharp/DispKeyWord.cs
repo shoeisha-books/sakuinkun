@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SakuinKun
+﻿namespace SakuinKun
 {
     /// <summary>
     /// 表示用キーワード
@@ -19,7 +13,7 @@ namespace SakuinKun
         /// メインキーワード読み
         /// </summary>
         public string MainYomi { get; set; } = string.Empty;
-        
+
         /// <summary>
         /// サブキーワード
         /// </summary>
@@ -28,7 +22,7 @@ namespace SakuinKun
         /// サブキーワード読み
         /// </summary>
         public string SubYomi { get; set; } = string.Empty;
-        
+
         /// <summary>
         /// ノンブル
         /// </summary>

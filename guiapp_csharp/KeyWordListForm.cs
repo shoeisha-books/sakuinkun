@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WinRT;
-using static SakuinKun.LibSakuin;
+﻿using System.ComponentModel;
 
 namespace SakuinKun
 {
@@ -26,32 +16,6 @@ namespace SakuinKun
         public KeyWordListForm()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// XMLのインポート
-        /// </summary>
-        /// <param name="importFileName"></param>
-        public void ImportXml(string importFileName)
-        {
-            if (!LibSakuin.ImportXml(importFileName))
-            {
-                // @TODO error
-                return;
-            }
-        }
-
-        /// <summary>
-        /// JSONのロード
-        /// </summary>
-        /// <param name="jsonFileName"></param>
-        public void LoadJson(string jsonFileName)
-        {
-            if (!LibSakuin.LoadJson(jsonFileName))
-            {
-                // @TODO error
-                return;
-            }
         }
 
         private void KeyWordListForm_Load(object sender, EventArgs e)

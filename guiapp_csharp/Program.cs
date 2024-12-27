@@ -1,5 +1,3 @@
-using SakuinKun.Properties;
-
 namespace SakuinKun
 {
     internal static class Program

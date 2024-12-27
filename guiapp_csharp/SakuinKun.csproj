@@ -10,13 +10,13 @@
     <Platforms>AnyCPU;x64</Platforms>
     <SignAssembly>False</SignAssembly>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>3.0.0</Version>
+    <Version>3.0.1</Version>
     <NeutralLanguage>ja-JP</NeutralLanguage>
     <Copyright>Shoeisha Co. Ltd., All Rights Reserved.</Copyright>
     <Company>Shoeisha Co., Ltd.</Company>
     <Title>SakuinKun</Title>
-    <AssemblyVersion>3.0.0.36</AssemblyVersion>
-    <FileVersion>3.0.0.36</FileVersion>
+    <AssemblyVersion>3.0.1.0</AssemblyVersion>
+    <FileVersion>3.0.1.0</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <BaseOutputPath>..\_install\$(Configure)</BaseOutputPath>
     <Authors>Shoeisha Co., Ltd.</Authors>

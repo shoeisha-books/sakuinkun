@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SakuinKun
+﻿namespace SakuinKun
 {
     /// <summary>
     /// 単語の編集ウィンドウ
@@ -24,7 +14,7 @@ namespace SakuinKun
 
         /// <summary>
         /// コンストラクタ
-        /// </summary>
+        /// </summary>book1@shoeisha.co.jp
         /// <param name="uuid"></param>
         public WordEditForm(string uuid)
         {

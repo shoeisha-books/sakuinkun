@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
-using Windows.Media;
 using WinRT;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SakuinKun
 {
@@ -75,7 +68,7 @@ namespace SakuinKun
 
             public Data AllocRecvData()
             {
-                Data data = new Data() { word_len = KeyWordMaxLength, yomi_len = KeyWordMaxLength};
+                Data data = new Data() { word_len = KeyWordMaxLength, yomi_len = KeyWordMaxLength };
                 var memSize = Marshal.SizeOf<char>() * KeyWordMaxLength;
                 data.word = Marshal.AllocHGlobal(memSize);
                 data.yomi = Marshal.AllocHGlobal(memSize);
@@ -137,7 +130,7 @@ namespace SakuinKun
                 };
                 var memSize = Marshal.SizeOf<char>() * DispStrMaxLength;
                 data.disp_str = Marshal.AllocHGlobal(memSize);
-                
+
 
                 return data;
             }
@@ -262,7 +255,7 @@ namespace SakuinKun
             public IndexDesc Desc { get; set; } = new();
             public List<IndexRecord> Records { get; set; } = new();
 
-            [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)]
+            [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
             public struct Data
             {
                 public IndexDesc.Data desc;
@@ -329,7 +322,7 @@ namespace SakuinKun
 
         public static bool LoadJson(string path)
         {
-            [DllImport(DllName,  CharSet = CharSet.Unicode)]
+            [DllImport(DllName, CharSet = CharSet.Unicode)]
             static extern bool load_json(string path);
 
             return load_json(path);
@@ -374,7 +367,7 @@ namespace SakuinKun
             static extern bool get_index(ref Index.Data data, bool sort);
 
             var data = index.AllocRecvData();
-            
+
             if (!get_index(ref data, sort))
             {
                 return false;
@@ -388,7 +381,7 @@ namespace SakuinKun
 
         public static bool GetRecord(string uuid, ref IndexRecord record)
         {
-            [DllImport (DllName, CharSet = CharSet.Unicode)]
+            [DllImport(DllName, CharSet = CharSet.Unicode)]
             static extern bool get_record(string uuid, ref IndexRecord.Data data);
 
             var data = record.AllocRecvData();
