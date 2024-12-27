@@ -101,6 +101,7 @@
             // 
             // ImportFileNameTextBox
             // 
+            ImportFileNameTextBox.Enabled = false;
             ImportFileNameTextBox.Location = new Point(117, 40);
             ImportFileNameTextBox.Name = "ImportFileNameTextBox";
             ImportFileNameTextBox.Size = new Size(375, 23);

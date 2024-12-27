@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace SakuinKun
 {
+    /// <summary>
+    /// 単語の編集ウィンドウ
+    /// </summary>
     public partial class WordEditForm : Form
     {
         private string _uuid;
@@ -18,6 +21,11 @@ namespace SakuinKun
         private int _refType = ManualRefType;
 
         private LibSakuin.IndexRecord _record = new();
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="uuid"></param>
         public WordEditForm(string uuid)
         {
             _uuid = uuid;
@@ -57,20 +65,29 @@ namespace SakuinKun
             _record.Reference.Type = ManualRefType;
             _record.Reference.DispStr = NombreText.Text;
 
-            LibSakuin.AddAndUpdateRecord(_record);
+            if (!_record.Check())
+            {
+                MessageBox.Show("入力内容が不正です。キーワードおよび読み、もしくは参照が長すぎる可能性があります");
+            }
 
-            Close();
-        }
+            else
+            {
 
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            Close();
+                LibSakuin.AddAndUpdateRecord(_record);
+
+                Close();
+            }
         }
 
         private void NombreText_TextChanged(object sender, EventArgs e)
         {
             _refType = 4;
             RefTypeLabel.Text = ReferenceItems[_refType];
+        }
+
+        private void CancelExitButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

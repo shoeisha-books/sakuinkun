@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace SakuinKun
 {
+    /// <summary>
+    /// 「アプリについて」ウィンドウ
+    /// </summary>
     public partial class AboutForm : Form
     {
         private class AboutViewModel : INotifyPropertyChanged
@@ -122,17 +125,12 @@ namespace SakuinKun
                 }
             }
         }
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public AboutForm()
         {
             InitializeComponent();
-
-            AppVerLabel.DataBindings.Add("Text", aboutViewModel, "AppVer");
-            LibSakuinVerLabel.DataBindings.Add("Text", aboutViewModel, "LibSakuinVer");
-            MeCabModelVerLabel.DataBindings.Add("Text", aboutViewModel, "MeCabModelVer");
-            MeCabTaggerVerLabel.DataBindings.Add("Text", aboutViewModel, "MeCabTaggerVer");
-            BoostVerLabel.DataBindings.Add("Text", aboutViewModel, "BoostVer");
-            Xml2VerLabel.DataBindings.Add("Text", aboutViewModel, "Xml2Ver");
-            XlsxWriterVerLabel.DataBindings.Add("Text", aboutViewModel, "XlsxWriterVer");
         }
 
         private void AboutCloseButton_Click(object sender, EventArgs e)
@@ -151,6 +149,14 @@ namespace SakuinKun
 
         private void AboutForm_Load(object sender, EventArgs e)
         {
+            AppVerLabel.DataBindings.Add("Text", aboutViewModel, "AppVer");
+            LibSakuinVerLabel.DataBindings.Add("Text", aboutViewModel, "LibSakuinVer");
+            MeCabModelVerLabel.DataBindings.Add("Text", aboutViewModel, "MeCabModelVer");
+            MeCabTaggerVerLabel.DataBindings.Add("Text", aboutViewModel, "MeCabTaggerVer");
+            BoostVerLabel.DataBindings.Add("Text", aboutViewModel, "BoostVer");
+            Xml2VerLabel.DataBindings.Add("Text", aboutViewModel, "Xml2Ver");
+            XlsxWriterVerLabel.DataBindings.Add("Text", aboutViewModel, "XlsxWriterVer");
+
             CheckAppVer();
             aboutViewModel.LibSakuinVer = LibSakuin.GetLibVersion();
             aboutViewModel.MeCabModelVer = LibSakuin.GetMeCabModelVersion();

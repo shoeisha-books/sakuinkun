@@ -104,6 +104,12 @@ namespace SakuinKun
                 Word = Marshal.PtrToStringUni(data.word) ?? string.Empty;
                 Yomi = Marshal.PtrToStringUni(data.yomi) ?? string.Empty;
             }
+
+            public bool Check()
+            {
+                // 余裕を持って
+                return Word.Length < KeyWordMaxLength - 5 && Yomi.Length < KeyWordMaxLength - 5;
+            }
         }
 
         public class Reference
@@ -161,6 +167,11 @@ namespace SakuinKun
                 DispStr = Marshal.PtrToStringUni(data.disp_str) ?? string.Empty;
                 Type = data.type;
                 Page = data.page;
+            }
+
+            public bool Check()
+            {
+                return DispStr.Length < DispStrMaxLength;
             }
         }
 
@@ -231,6 +242,11 @@ namespace SakuinKun
                 }
                 Reference.SetData(data.reference);
                 Uuid = Marshal.PtrToStringUni(data.uuid) ?? string.Empty;
+            }
+
+            public bool Check()
+            {
+                return MainKey.Check() && SubKey.Check() && Reference.Check();
             }
         }
 

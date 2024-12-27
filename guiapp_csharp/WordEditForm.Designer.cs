@@ -55,7 +55,7 @@
             // 
             // OkButton
             // 
-            OkButton.Location = new Point(306, 199);
+            OkButton.Location = new Point(602, 202);
             OkButton.Name = "OkButton";
             OkButton.Size = new Size(75, 23);
             OkButton.TabIndex = 0;
@@ -71,7 +71,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(18, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(200, 100);
+            groupBox1.Size = new Size(491, 100);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "メインキーワード";
@@ -80,7 +80,7 @@
             // 
             MainYomiText.Location = new Point(72, 53);
             MainYomiText.Name = "MainYomiText";
-            MainYomiText.Size = new Size(100, 23);
+            MainYomiText.Size = new Size(395, 23);
             MainYomiText.TabIndex = 8;
             // 
             // label2
@@ -96,7 +96,7 @@
             // 
             MainWordText.Location = new Point(72, 24);
             MainWordText.Name = "MainWordText";
-            MainWordText.Size = new Size(100, 23);
+            MainWordText.Size = new Size(395, 23);
             MainWordText.TabIndex = 6;
             // 
             // label1
@@ -116,7 +116,7 @@
             groupBox2.Controls.Add(label7);
             groupBox2.Location = new Point(18, 118);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(200, 100);
+            groupBox2.Size = new Size(491, 100);
             groupBox2.TabIndex = 12;
             groupBox2.TabStop = false;
             groupBox2.Text = "サブキーワード";
@@ -125,7 +125,7 @@
             // 
             SubYomiText.Location = new Point(72, 53);
             SubYomiText.Name = "SubYomiText";
-            SubYomiText.Size = new Size(100, 23);
+            SubYomiText.Size = new Size(395, 23);
             SubYomiText.TabIndex = 8;
             // 
             // label6
@@ -141,7 +141,7 @@
             // 
             SubWordText.Location = new Point(72, 24);
             SubWordText.Name = "SubWordText";
-            SubWordText.Size = new Size(100, 23);
+            SubWordText.Size = new Size(395, 23);
             SubWordText.TabIndex = 6;
             // 
             // label7
@@ -160,7 +160,7 @@
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(NombreText);
             groupBox3.Controls.Add(label5);
-            groupBox3.Location = new Point(224, 12);
+            groupBox3.Location = new Point(526, 12);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(200, 118);
             groupBox3.TabIndex = 13;
@@ -215,7 +215,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(230, 156);
+            label8.Location = new Point(526, 159);
             label8.Name = "label8";
             label8.Size = new Size(34, 15);
             label8.TabIndex = 14;
@@ -224,7 +224,7 @@
             // UuidLabel
             // 
             UuidLabel.AutoSize = true;
-            UuidLabel.Location = new Point(230, 171);
+            UuidLabel.Location = new Point(526, 174);
             UuidLabel.Name = "UuidLabel";
             UuidLabel.Size = new Size(219, 15);
             UuidLabel.TabIndex = 15;
@@ -232,18 +232,19 @@
             // 
             // CancelExitButton
             // 
-            CancelExitButton.Location = new Point(393, 199);
+            CancelExitButton.Location = new Point(689, 202);
             CancelExitButton.Name = "CancelExitButton";
             CancelExitButton.Size = new Size(75, 23);
             CancelExitButton.TabIndex = 16;
             CancelExitButton.Text = "キャンセル";
             CancelExitButton.UseVisualStyleBackColor = true;
+            CancelExitButton.Click += CancelExitButton_Click;
             // 
             // WordEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(480, 234);
+            ClientSize = new Size(771, 234);
             Controls.Add(CancelExitButton);
             Controls.Add(UuidLabel);
             Controls.Add(label8);

@@ -61,9 +61,10 @@ namespace SakuinKun
 
         void CheckParseButtonEnable()
         {
-            // ファイル名が両方セットされている
+            // ファイル名がセットされている
             ParseButton.Enabled = (ImportFileNameTextBox.Text != ""
-                && ExportFileNameTextBox.Text != "");
+                //&& ExportFileNameTextBox.Text != "");
+                );
 
         }
 

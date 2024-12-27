@@ -12,16 +12,26 @@ using static SakuinKun.LibSakuin;
 
 namespace SakuinKun
 {
+    /// <summary>
+    /// キーワード一覧ウィンドウ
+    /// </summary>
     public partial class KeyWordListForm : Form
     {
         private bool _sort = false;
         private bool _yomiCheck = true;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public KeyWordListForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// XMLのインポート
+        /// </summary>
+        /// <param name="importFileName"></param>
         public void ImportXml(string importFileName)
         {
             if (!LibSakuin.ImportXml(importFileName))
@@ -31,6 +41,10 @@ namespace SakuinKun
             }
         }
 
+        /// <summary>
+        /// JSONのロード
+        /// </summary>
+        /// <param name="jsonFileName"></param>
         public void LoadJson(string jsonFileName)
         {
             if (!LibSakuin.LoadJson(jsonFileName))
@@ -45,13 +59,13 @@ namespace SakuinKun
             UpdateGridView();
         }
 
-        private BindingList<IndexDispRecord> ConvertIndex(LibSakuin.Index index)
+        static private BindingList<DispKeyWord> ConvertIndex(LibSakuin.Index index)
         {
-            BindingList<IndexDispRecord> ret = new();
+            BindingList<DispKeyWord> ret = new();
             for (int i = 0; i < index.Records.Count; i++)
             {
                 var record = index.Records[i];
-                IndexDispRecord temp = new()
+                DispKeyWord temp = new()
                 {
                     MainKey = record.MainKey.Word,
                     MainYomi = record.MainKey.Yomi,
@@ -67,18 +81,8 @@ namespace SakuinKun
             return ret;
         }
 
-        internal class IndexDispRecord
-        {
-            public string MainKey { get; set; } = string.Empty;
-            public string MainYomi { get; set; } = string.Empty;
-            public string SubKey { get; set; } = string.Empty;
-            public string SubYomi { get; set; } = string.Empty;
-            //public int Page { get; set; }
-            public string Nombre { get; set; } = string.Empty;
 
-            public string UUID { get; set; } = string.Empty;
-        }
-        BindingList<IndexDispRecord> _records = new();
+        BindingList<DispKeyWord> _records = new();
 
         private void SortMenuItem_Click(object sender, EventArgs e)
         {
@@ -96,18 +100,8 @@ namespace SakuinKun
 
             _records = ConvertIndex(index);
 
-            IndexRecordGridView.DataSource = null;
             IndexRecordGridView.DataSource = _records;
-
-            IndexRecordGridView.Columns[0].HeaderText = "メインキー";
-            IndexRecordGridView.Columns[1].HeaderText = "メインキー読み";
-            IndexRecordGridView.Columns[2].HeaderText = "サブキー";
-            IndexRecordGridView.Columns[3].HeaderText = "サブキー読み";
-
-            IndexRecordGridView.Columns[4].HeaderText = "ノンブル";
-
-            IndexRecordGridView.Columns[5].Visible = false;
-            IndexRecordGridView.Columns[5].HeaderText = "UUID";
+            IndexRecordGridView.Refresh();
 
             YomiCheck();
 
@@ -131,15 +125,6 @@ namespace SakuinKun
                     IndexRecordGridView[3, i].Style.BackColor = Color.LightCoral;
                 }
             }
-        }
-
-        private void IndexRecordGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var uuid = _records[e.RowIndex].UUID;
-
-            var wordEditForm = new WordEditForm(uuid);
-            wordEditForm.ShowDialog();
-            UpdateGridView();
         }
 
         private void SaveJsonMenuItem_Click(object sender, EventArgs e)
@@ -182,6 +167,19 @@ namespace SakuinKun
         private void YomiCheckMenuItem_Click(object sender, EventArgs e)
         {
             _yomiCheck = !_yomiCheck;
+            UpdateGridView();
+        }
+
+        private void IndexRecordGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            var uuid = _records[e.RowIndex].UUID;
+
+            var wordEditForm = new WordEditForm(uuid);
+            wordEditForm.ShowDialog();
             UpdateGridView();
         }
     }

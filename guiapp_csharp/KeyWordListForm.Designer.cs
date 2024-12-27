@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             menuStrip1 = new MenuStrip();
             FileToolStripMenuItem = new ToolStripMenuItem();
@@ -39,10 +40,18 @@
             SortMenuItem = new ToolStripMenuItem();
             YomiCheckMenuItem = new ToolStripMenuItem();
             IndexRecordGridView = new DataGridView();
+            mainKeyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            mainYomiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            subKeyDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            subYomiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            uUIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            keyWordBindingSource = new BindingSource(components);
             JsonSaveDialog = new SaveFileDialog();
             XlsxExportDialog = new SaveFileDialog();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)IndexRecordGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)keyWordBindingSource).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -112,9 +121,12 @@
             // 
             IndexRecordGridView.AllowUserToAddRows = false;
             IndexRecordGridView.AllowUserToDeleteRows = false;
+            IndexRecordGridView.AutoGenerateColumns = false;
             IndexRecordGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             IndexRecordGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             IndexRecordGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            IndexRecordGridView.Columns.AddRange(new DataGridViewColumn[] { mainKeyDataGridViewTextBoxColumn, mainYomiDataGridViewTextBoxColumn, subKeyDataGridViewTextBoxColumn, subYomiDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, uUIDDataGridViewTextBoxColumn });
+            IndexRecordGridView.DataSource = keyWordBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
             dataGridViewCellStyle1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
@@ -130,7 +142,61 @@
             IndexRecordGridView.RowHeadersVisible = false;
             IndexRecordGridView.Size = new Size(1009, 535);
             IndexRecordGridView.TabIndex = 1;
-            IndexRecordGridView.CellContentDoubleClick += IndexRecordGridView_CellContentDoubleClick;
+            IndexRecordGridView.CellDoubleClick += IndexRecordGridView_CellDoubleClick;
+            // 
+            // mainKeyDataGridViewTextBoxColumn
+            // 
+            mainKeyDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            mainKeyDataGridViewTextBoxColumn.DataPropertyName = "MainKey";
+            mainKeyDataGridViewTextBoxColumn.HeaderText = "メインキー";
+            mainKeyDataGridViewTextBoxColumn.Name = "mainKeyDataGridViewTextBoxColumn";
+            mainKeyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mainYomiDataGridViewTextBoxColumn
+            // 
+            mainYomiDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            mainYomiDataGridViewTextBoxColumn.DataPropertyName = "MainYomi";
+            mainYomiDataGridViewTextBoxColumn.HeaderText = "メイン読み";
+            mainYomiDataGridViewTextBoxColumn.Name = "mainYomiDataGridViewTextBoxColumn";
+            mainYomiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // subKeyDataGridViewTextBoxColumn
+            // 
+            subKeyDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            subKeyDataGridViewTextBoxColumn.DataPropertyName = "SubKey";
+            subKeyDataGridViewTextBoxColumn.HeaderText = "サブキー";
+            subKeyDataGridViewTextBoxColumn.Name = "subKeyDataGridViewTextBoxColumn";
+            subKeyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // subYomiDataGridViewTextBoxColumn
+            // 
+            subYomiDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            subYomiDataGridViewTextBoxColumn.DataPropertyName = "SubYomi";
+            subYomiDataGridViewTextBoxColumn.HeaderText = "サブ読み";
+            subYomiDataGridViewTextBoxColumn.Name = "subYomiDataGridViewTextBoxColumn";
+            subYomiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            nombreDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.HeaderText = "ノンブル";
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            nombreDataGridViewTextBoxColumn.Width = 67;
+            // 
+            // uUIDDataGridViewTextBoxColumn
+            // 
+            uUIDDataGridViewTextBoxColumn.DataPropertyName = "UUID";
+            uUIDDataGridViewTextBoxColumn.HeaderText = "UUID";
+            uUIDDataGridViewTextBoxColumn.Name = "uUIDDataGridViewTextBoxColumn";
+            uUIDDataGridViewTextBoxColumn.ReadOnly = true;
+            uUIDDataGridViewTextBoxColumn.Visible = false;
+            uUIDDataGridViewTextBoxColumn.Width = 59;
+            // 
+            // keyWordBindingSource
+            // 
+            keyWordBindingSource.DataSource = typeof(DispKeyWord);
             // 
             // JsonSaveDialog
             // 
@@ -155,11 +221,12 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "KeyWordListForm";
-            Text = "キーワード一覧（ダブルクリックで編集）";
+            Text = "キーワード一覧（右クリックで編集）";
             Load += KeyWordListForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)IndexRecordGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)keyWordBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,5 +245,12 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem ExitMenuItem;
         private ToolStripMenuItem AddKeyWordMenuItem;
+        private DataGridViewTextBoxColumn mainKeyDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn mainYomiDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn subKeyDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn subYomiDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn uUIDDataGridViewTextBoxColumn;
+        private BindingSource keyWordBindingSource;
     }
 }
