@@ -20,7 +20,8 @@ project(sakuinkun)
 
 add_subdirectory(extlibs)
 add_subdirectory(lib)
-add_subdirectory(app)
+add_subdirectory(cli_app)
+add_subdirectory(cli_app_cpp)
 #add_subdirectory(guiapp)
 add_subdirectory(mecab_data)
 
