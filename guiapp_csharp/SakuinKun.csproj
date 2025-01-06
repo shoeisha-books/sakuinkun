@@ -15,8 +15,8 @@
     <Copyright>Shoeisha Co. Ltd., All Rights Reserved.</Copyright>
     <Company>Shoeisha Co., Ltd.</Company>
     <Title>SakuinKun</Title>
-    <AssemblyVersion>3.0.1.0</AssemblyVersion>
-    <FileVersion>3.0.1.0</FileVersion>
+    <AssemblyVersion>3.0.2.1</AssemblyVersion>
+    <FileVersion>3.0.2.1</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <BaseOutputPath>..\_install\$(Configure)</BaseOutputPath>
     <Authors>Shoeisha Co., Ltd.</Authors>

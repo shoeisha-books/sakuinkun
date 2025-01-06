@@ -221,7 +221,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "KeyWordListForm";
-            Text = "キーワード一覧（右クリックで編集）";
+            Text = "キーワード一覧（ダブルクリックで編集）";
             Load += KeyWordListForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
