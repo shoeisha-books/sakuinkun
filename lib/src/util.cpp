@@ -334,4 +334,20 @@ std::wstring getUUID()
     auto uuid = boost::uuids::random_generator()();
     return boost::nowide::widen(boost::lexical_cast<std::string>(uuid));
 }
+
+std::wstring getHomeDir()
+{
+#ifdef _WIN32
+    auto homeVal = "USERPROFILE";
+#else
+    auto homeVal = "HOME";
+#endif
+    std::string homeDir;
+    if (const char* home = std::getenv(homeVal))
+    {
+        homeDir = home;
+    }
+
+    return boost::nowide::widen(homeDir);
+}
 }

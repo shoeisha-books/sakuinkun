@@ -13,8 +13,10 @@
 #include "xlsx/XlsxExport.h"
 #include "xml/XmlImport.h"
 #include "sakuin_def.h"
+#include "util.h"
 
 #include <iostream>
+#include <filesystem>
 #include <vector>
 #include <sstream>
 #include <boost/nowide/convert.hpp>
@@ -23,6 +25,19 @@
 #include <Windows.h>
 
 using namespace sakuin;
+
+namespace
+{
+    void checkUserDir()
+    {
+        auto homeDir = getHomeDir();
+        auto userDir = boost::nowide::widen("user");
+        if (!std::filesystem::exists(userDir))
+        {
+            std::filesystem::create_directory(userDir);
+        }
+    }
+}
 
 SakuinKun& SakuinKun::getInstance()
 {
@@ -123,6 +138,7 @@ SakuinKun::Impl::~Impl()
 
 bool SakuinKun::Impl::restoreConfig()
 {
+    checkUserDir();
     ConfigData config;
     bool ret = loadConfig(config);
     if (ret)
