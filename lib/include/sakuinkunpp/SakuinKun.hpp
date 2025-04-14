@@ -7,6 +7,7 @@
  */
 
 #pragma once
+#include "sakuin_def.h"
 
 #include "IndexDesc.hpp"
 #include "KeyWord.hpp"
@@ -25,7 +26,7 @@ namespace sakuin
 /// <summary>
 /// さくいん君メインクラス
 /// </summary>
-class SakuinKun
+class DLLEXPORT SakuinKun
 {
 private:
     // 呼び出し不可。インスタンスはgetInstance()で取得

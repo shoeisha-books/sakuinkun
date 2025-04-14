@@ -12,6 +12,14 @@
 
 extern const wchar_t* LibSakuinVer;
 
+#ifdef WIN32
+//#ifndef DLL_EXPORT
+#define DLLEXPORT __declspec(dllexport)
+//#endif
+#else
+#define DLLEXPORT export
+#endif
+
 #ifdef __cplusplus
 extern "C"
 {

@@ -14,13 +14,7 @@
 extern "C"
 {
 #endif
-#ifdef WIN32
-//#ifndef DLL_EXPORT
-#define DLLEXPORT __declspec(dllexport)
-//#endif
-#else
-#define DLLEXPORT export
-#endif
+
 
 /// <summary>
 /// 初期化（何するにも必要）
