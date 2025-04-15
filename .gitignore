@@ -2,6 +2,7 @@ _build
 _install
 _release
 _working
+.vs
 .vscode
 extlibs/mecab
 extlibs/mecab-ipadic
