@@ -25,7 +25,6 @@ add_subdirectory(cli_app_cpp)
 add_subdirectory(mecab_data)
 
 include_external_msproject(SakuinKun ${CMAKE_CURRENT_SOURCE_DIR}/guiapp_csharp/SakuinKun.csproj)
-add_dependencies(libsakuin extlib mecab_data)
 add_dependencies(SakuinKun libsakuin)
 add_dependencies(sakuin-cli-cpp libsakuin)
 add_dependencies(sakuin-cli libsakuin)
