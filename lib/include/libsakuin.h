@@ -20,7 +20,7 @@ extern "C"
 /// 初期化（何するにも必要）
 /// </summary>
 /// <returns></returns>
-DLLEXPORT void initialize();
+DLLEXPORT void init_app();
 
 /// <summary>
 /// 初期化済みか？
@@ -134,6 +134,11 @@ DLLEXPORT void set_desc(const IndexDescData* desc);
 /// <returns></returns>
 DLLEXPORT void add_and_update_record(const IndexRecordData* data);
 
+/// <summary>
+/// 終了処理
+/// </summary>
+/// <returns></returns>
+DLLEXPORT void term_app();
 #ifdef __cplusplus
 }
 #endif

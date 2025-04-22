@@ -9,6 +9,7 @@
 #include "json/JsonRW.h"
 #include "sakuinkunpp/IndexDesc.hpp"
 #include "sakuin_def.h"
+#include "util.h"
 
 #include <picojson/picojson.h>
 #include <filesystem>
@@ -385,8 +386,10 @@ bool parseIndexHeader(const picojson::value& json, std::shared_ptr<IndexDesc>& d
     return true;
 }
 
-const wchar_t* ConfigPath = L"./config.json";
-
+std::wstring getConfigPath()
+{
+    return getUserDir() +  L"/config.json";
+}
 }
 
 namespace sakuin
@@ -395,13 +398,13 @@ namespace sakuin
 bool saveConfig(const ConfigData& config)
 {
     auto json = convToJson(config);
-    return saveJson(ConfigPath, json);
+    return saveJson(getConfigPath(), json);
 }
 
 bool loadConfig(ConfigData& config)
 {
     auto json = picojson::value();
-    if (!loadJson(ConfigPath, json))
+    if (!loadJson(getConfigPath(), json))
     {
         return false;
     }

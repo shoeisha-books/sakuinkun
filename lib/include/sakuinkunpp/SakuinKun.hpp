@@ -53,6 +53,11 @@ public:
     bool isInitialized()const;
 
     /// <summary>
+    /// 終了処理
+    /// </summary>
+    void terminate();
+
+    /// <summary>
     /// JSONファイルのロード
     /// </summary>
     /// <param name="fileName"></param>
@@ -153,7 +158,6 @@ public:
     /// </summary>
     /// <returns></returns>
     static std::wstring getXlsxWriterVersion();
-
 
 private:
     // pimpl

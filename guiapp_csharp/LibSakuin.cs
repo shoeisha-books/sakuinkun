@@ -307,9 +307,9 @@ namespace SakuinKun
         public static void InitSakuin()
         {
             [DllImport(DllName)]
-            static extern void initialize();
+            static extern void init_app();
 
-            initialize();
+            init_app();
         }
 
         public static bool IsInitialized()
@@ -485,6 +485,13 @@ namespace SakuinKun
             get_xlsx_writer_version(sb);
 
             return sb.ToString();
+        }
+
+        public static void Dispose()
+        {
+            [DllImport(DllName)]
+            static extern void term_app();
+            term_app();
         }
     }
 }

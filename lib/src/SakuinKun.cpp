@@ -30,8 +30,7 @@ namespace
 {
     void checkUserDir()
     {
-        auto homeDir = getHomeDir();
-        auto userDir = boost::nowide::widen("user");
+        auto userDir = getUserDir();
         if (!std::filesystem::exists(userDir))
         {
             std::filesystem::create_directory(userDir);
@@ -257,7 +256,6 @@ IndexRecord SakuinKun::Impl::calcIndexRecord(const XmlImportRecord& xml)const
 }
 
 SakuinKun::SakuinKun()
-    : impl_(new Impl())
 {
 
 }
@@ -269,7 +267,16 @@ SakuinKun::~SakuinKun()
 
 void SakuinKun::initialize()
 {
+    if (!impl_)
+    {
+        impl_ = std::shared_ptr<Impl>(new Impl());
+    }
     impl_->initialize();
+}
+
+void SakuinKun::terminate()
+{
+    impl_.reset();
 }
 
 bool SakuinKun::isInitialized()const

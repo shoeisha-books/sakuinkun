@@ -16,5 +16,5 @@ extern std::wstring convToRoman(int num, bool cap = true);
 extern int convFromRoman(const std::wstring& roman);
 extern std::wstring getUUID();
 extern std::wstring calcPageStr(int origPage, const IndexDesc& header);
-extern std::wstring getHomeDir();
+extern std::wstring getUserDir();
 }

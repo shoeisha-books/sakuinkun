@@ -70,3 +70,15 @@ target_include_directories(libsakuin PRIVATE ${PICOJSON_INCLUDE_DIRS})
 target_include_directories(libsakuin PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 add_dependencies(libsakuin mecab_data)
+
+file(TO_NATIVE_PATH ${CMAKE_CURRENT_SOURCE_DIR}\\..\\ PrjRootDir)
+set(InstallDir ${PrjRootDir}\\_install)
+
+add_custom_command(
+    TARGET libsakuin
+    POST_BUILD
+    #COMMAND echo ${InstallDir}
+    COMMAND if not exist ${InstallDir}\\$(ConfigurationName) mkdir ${InstallDir}\\$(ConfigurationName)
+    COMMAND copy $(OutDir)\\*.dll ${InstallDir}\\$(ConfigurationName)\\
+    #COMMAND xcopy $(OutDir)\\* ${InstallDir}\\$(ConfiguratioName)
+)

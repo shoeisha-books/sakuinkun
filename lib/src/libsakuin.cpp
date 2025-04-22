@@ -15,9 +15,9 @@
 const wchar_t* RangeMark = L"-";
 const wchar_t* SeeMark = L"→";
 const wchar_t* SeeAlsoMark = L"⇒";
-const wchar_t* LibSakuinVer = L"3.0.2";
+const wchar_t* LibSakuinVer = L"3.1.0";
 
-DLLEXPORT void initialize()
+DLLEXPORT void init_app()
 {
     sakuin::SakuinKun::getInstance().initialize();
 }
@@ -292,3 +292,9 @@ void dummy()
     return;
 }
 #endif
+
+DLLEXPORT void term_app()
+{
+    auto& sakuin = sakuin::SakuinKun::getInstance();
+    sakuin.terminate();
+}

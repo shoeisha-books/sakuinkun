@@ -30,6 +30,12 @@ namespace SakuinKun
             CheckParseButtonEnable();
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            LibSakuin.Dispose();
+        }
+
+
         private void CheckAppVer()
         {
             System.Diagnostics.FileVersionInfo ver =

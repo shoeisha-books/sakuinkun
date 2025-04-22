@@ -335,7 +335,7 @@ std::wstring getUUID()
     return boost::nowide::widen(boost::lexical_cast<std::string>(uuid));
 }
 
-std::wstring getHomeDir()
+std::wstring getUserDir()
 {
 #ifdef _WIN32
     auto homeVal = "USERPROFILE";
@@ -348,6 +348,6 @@ std::wstring getHomeDir()
         homeDir = home;
     }
 
-    return boost::nowide::widen(homeDir);
+    return boost::nowide::widen(homeDir) + L"/.sakuinkun/";
 }
 }

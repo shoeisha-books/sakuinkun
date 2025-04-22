@@ -9,16 +9,15 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <Platforms>AnyCPU;x64</Platforms>
     <SignAssembly>False</SignAssembly>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>3.0.1</Version>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Version>3.1.0</Version>
     <NeutralLanguage>ja-JP</NeutralLanguage>
     <Copyright>Shoeisha Co. Ltd., All Rights Reserved.</Copyright>
     <Company>Shoeisha Co., Ltd.</Company>
     <Title>SakuinKun</Title>
-    <AssemblyVersion>3.0.2.1</AssemblyVersion>
-    <FileVersion>3.0.2.1</FileVersion>
+    <AssemblyVersion>3.1.0.0</AssemblyVersion>
+    <FileVersion>3.1.0.0</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <BaseOutputPath>..\_install\$(Configure)</BaseOutputPath>
     <Authors>Shoeisha Co., Ltd.</Authors>
   </PropertyGroup>
 
@@ -72,5 +71,9 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="mkdir $(ProjectDir)\..\_install\$(ConfigurationName);&#xD;&#xA;xcopy /d /y $(OutDir)\* $(ProjectDir)\..\_install\$(ConfigurationName)" />
+  </Target>
 
 </Project>

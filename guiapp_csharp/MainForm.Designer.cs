@@ -309,6 +309,7 @@
             MinimizeBox = false;
             Name = "MainForm";
             Text = "さくいんくん";
+            FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)RomanPagesUpDown).EndInit();
             ((System.ComponentModel.ISupportInitialize)StartNombreUpDown).EndInit();
