@@ -64,21 +64,21 @@ target_link_libraries(libsakuin PRIVATE Boost::nowide)
 find_package(boost_algorithm REQUIRED CONFIG)
 target_link_libraries(libsakuin PRIVATE Boost::algorithm)
 
-find_path(PICOJSON_INCLUDE_DIRS "picojson/picojson.h")
-target_include_directories(libsakuin PRIVATE ${PICOJSON_INCLUDE_DIRS})
+#find_path(PICOJSON_INCLUDE_DIRS "picojson/picojson.h")
+#target_include_directories(libsakuin PRIVATE ${PICOJSON_INCLUDE_DIRS})
 
 target_include_directories(libsakuin PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 add_dependencies(libsakuin mecab_data)
 
-file(TO_NATIVE_PATH ${CMAKE_CURRENT_SOURCE_DIR}\\..\\ PrjRootDir)
-set(InstallDir ${PrjRootDir}\\_install)
+set(InstallDir ${CMAKE_CURRENT_SOURCE_DIR}/../_install)
 
 add_custom_command(
     TARGET libsakuin
     POST_BUILD
-    #COMMAND echo ${InstallDir}
-    COMMAND if not exist ${InstallDir}\\$(ConfigurationName) mkdir ${InstallDir}\\$(ConfigurationName)
-    COMMAND copy $(OutDir)\\*.dll ${InstallDir}\\$(ConfigurationName)\\
+    COMMAND ${CMAKE_COMMAND} -E echo "preparing install directory"
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${InstallDir}/$(ConfigurationName)
+    COMMAND ${CMAKE_COMMAND} -E echo "Copying DLLs to install directory"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $(OutDir)iconv-2.dll $(OutDir)libsakuin.dll $(OutDir)libsakuin.lib $(OutDir)libxml2.dll $(OutDir)mecab.dll $(OutDir)minizip.dll $(OutDir)xlsxwriter.dll "$<IF:$<CONFIG:Debug>,$(OutDir)zlibd1.dll,$(OutDir)zlib1.dll>" ${InstallDir}/$(ConfigurationName)
     #COMMAND xcopy $(OutDir)\\* ${InstallDir}\\$(ConfiguratioName)
 )

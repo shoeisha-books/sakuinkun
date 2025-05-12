@@ -8,15 +8,15 @@ set(DicFiles
     dic/unk.dic
 )
 
+set(RcFiles
+    rc/mecabrc)
+
+set(InstallDir ${CMAKE_CURRENT_SOURCE_DIR}/../_install)
+
 add_custom_target(mecab_data
-    SOURCES ${DicFiles}
-)
-
-file(TO_NATIVE_PATH ${CMAKE_CURRENT_SOURCE_DIR}\\..\\ PrjRootDir)
-
-add_custom_command(
-    TARGET mecab_data
-    POST_BUILD
-    COMMAND xcopy ${PrjRootDir}\\mecab_data\\dic ${PrjRootDir}\\_install\\$(ConfigurationName)\\dic\\ /E /I /Y
-    COMMAND xcopy ${PrjRootDir}\\mecab_data\\rc ${PrjRootDir}\\_install\\$(ConfigurationName)\\rc\\ /E /I /Y
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${InstallDir}/$(ConfigurationName)/dic
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${DicFiles} ${InstallDir}/$(ConfigurationName)/dic
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${InstallDir}/$(ConfigurationName)/rc
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${RcFiles} ${InstallDir}/$(ConfigurationName)/rc
+    SOURCES ${DicFiles} ${RcFiles}
 )
