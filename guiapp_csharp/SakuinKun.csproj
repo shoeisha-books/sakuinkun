@@ -76,4 +76,11 @@
     <Exec Command="mkdir $(ProjectDir)\..\_install\$(ConfigurationName);&#xD;&#xA;xcopy /d /y $(OutDir)\* $(ProjectDir)\..\_install\$(ConfigurationName)" />
   </Target>
 
+<ItemGroup>
+	<Content Include="..\_build\_bin\$(Configuration)\*.dll">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		<Visible>false</Visible>
+	</Content>
+</ItemGroup>
+
 </Project>

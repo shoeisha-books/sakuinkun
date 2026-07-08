@@ -37,6 +37,8 @@ set(HeaderFiles
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SrcFiles})
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${HeaderFiles})
 
+##2026
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 add_library(libsakuin SHARED ${SrcFiles} ${HeaderFiles})
 
@@ -77,8 +79,14 @@ add_custom_command(
     TARGET libsakuin
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E echo "preparing install directory"
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${InstallDir}/$(ConfigurationName)
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${InstallDir}/$<CONFIG>"
     COMMAND ${CMAKE_COMMAND} -E echo "Copying DLLs to install directory"
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $(OutDir)iconv-2.dll $(OutDir)libsakuin.dll $(OutDir)libsakuin.lib $(OutDir)libxml2.dll $(OutDir)mecab.dll $(OutDir)minizip.dll $(OutDir)xlsxwriter.dll "$<IF:$<CONFIG:Debug>,$(OutDir)zlibd1.dll,$(OutDir)zlib1.dll>" ${InstallDir}/$(ConfigurationName)
-    #COMMAND xcopy $(OutDir)\\* ${InstallDir}\\$(ConfiguratioName)
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different 
+        "$<TARGET_FILE_DIR:libsakuin>/iconv-2.dll" 
+        "$<TARGET_FILE_DIR:libsakuin>/libsakuin.dll" 
+        "$<TARGET_FILE_DIR:libsakuin>/libsakuin.lib" 
+        "$<TARGET_FILE_DIR:libsakuin>/libxml2.dll" 
+        "$<TARGET_FILE_DIR:libsakuin>/mecab.dll" 
+        "$<TARGET_FILE_DIR:libsakuin>/xlsxwriter.dll" 
+        "${InstallDir}/$<CONFIG>"
 )
